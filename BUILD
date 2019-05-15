@@ -154,7 +154,10 @@ cc_library(
         ":src/config_rev.h",
     ],
     copts = [
-        "-DDEFENV_VERILATOR_ROOT=\\\"@invalid@\\\"",  # TODO: We should probably set this later
+        # TODO: We should probably set this later
+        "-DDEFENV_SYSTEMC_INCLUDE=\\\"@invalid@\\\"",
+        "-DDEFENV_SYSTEMC_LIBDIR=\\\"@invalid@\\\"",
+        "-DDEFENV_VERILATOR_ROOT=\\\"@invalid@\\\"",
         # TODO: Remove these once upstream fixes these warnings
         "-Wno-unneeded-internal-declaration",
         # TODO: C++17 doesn't allow the register keyword.
@@ -192,6 +195,7 @@ cc_library(
     hdrs = [
         ":include/verilated_config.h",
         "include/verilated.h",
+        "include/verilated_sc.h",
         "include/verilated_dpi.h",
         "include/verilated_fst_c.h",
         "include/verilated_heavy.h",
